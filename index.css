@@ -1,0 +1,454 @@
+@import "tailwindcss";
+
+/* =========================
+   Global Reset
+========================= */
+
+*,
+*::before,
+*::after{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    min-height:100vh;
+    overflow-x:hidden;
+    background:#050816;
+    color:#E0E7FF;
+    font-family:"Space Grotesk",sans-serif;
+    line-height:1.6;
+    text-rendering:optimizeLegibility;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+button{
+    cursor:pointer;
+    border:none;
+    outline:none;
+}
+
+img{
+    max-width:100%;
+    display:block;
+}
+
+::selection{
+    background:#7C3AED;
+    color:white;
+}
+
+/* =========================
+   Color Variables
+========================= */
+
+:root{
+
+    --background:#050816;
+
+    --primary:#7C3AED;
+
+    --secondary:#3B82F6;
+
+    --accent:#06B6D4;
+
+    --success:#22C55E;
+
+    --text:#E0E7FF;
+
+    --text-muted:#94A3B8;
+
+    --glass:rgba(255,255,255,.05);
+
+    --glass-dark:rgba(17,25,40,.65);
+
+    --border:rgba(255,255,255,.08);
+
+    --primary-rgb:124,58,237;
+
+    --secondary-rgb:59,130,246;
+
+    --accent-rgb:6,182,212;
+}
+
+/* =========================
+   Glass Card
+========================= */
+
+.glass-card{
+
+    background:rgba(17,25,40,.55);
+
+    backdrop-filter:blur(18px);
+
+    -webkit-backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:24px;
+
+    transition:.35s ease;
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+.glass-card:hover{
+
+    transform:translateY(-8px);
+
+    border-color:rgba(6,182,212,.25);
+
+    box-shadow:
+
+    0 0 30px rgba(6,182,212,.15),
+
+    0 0 60px rgba(124,58,237,.15);
+}
+
+/* =========================
+   Glow Border
+========================= */
+
+.glow-border{
+
+    position:absolute;
+
+    inset:0;
+
+    border-radius:inherit;
+
+    border:1px solid rgba(6,182,212,.15);
+
+    pointer-events:none;
+
+    opacity:0;
+
+    transition:.3s;
+
+    box-shadow:
+
+    0 0 20px rgba(6,182,212,.15),
+
+    0 0 50px rgba(124,58,237,.15);
+
+}
+
+.glass-card:hover .glow-border{
+
+    opacity:1;
+
+}
+
+/* =========================
+   Text Gradients
+========================= */
+
+.text-gradient{
+    background: linear-gradient(
+        90deg,
+        #7C3AED,
+        #3B82F6,
+        #06B6D4
+    );
+
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+}
+
+.text-gradient-secondary {
+    background: linear-gradient(
+        90deg,
+        #06B6D4,
+        #3B82F6
+    );
+
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+}
+
+/* =========================
+   Buttons
+========================= */
+
+.primary-btn{
+
+    background:linear-gradient(
+        90deg,
+        #7C3AED,
+        #3B82F6
+    );
+
+    padding:14px 30px;
+
+    border-radius:999px;
+
+    color:white;
+
+    transition:.35s;
+
+}
+
+.primary-btn:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:
+
+    0 0 25px rgba(124,58,237,.45);
+
+}
+
+.secondary-btn{
+
+    border:1px solid rgba(255,255,255,.12);
+
+    background:rgba(255,255,255,.04);
+
+    padding:14px 30px;
+
+    border-radius:999px;
+
+    transition:.35s;
+
+}
+
+.secondary-btn:hover{
+
+    border-color:#06B6D4;
+
+}
+
+/* =========================
+   Scrollbar
+========================= */
+
+::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#050816;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:linear-gradient(
+
+        #7C3AED,
+
+        #06B6D4
+
+    );
+
+    border-radius:50px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:#3B82F6;
+
+}
+
+/* =========================
+   Animations
+========================= */
+
+@keyframes float{
+
+    0%{
+
+        transform:translateY(0px);
+
+    }
+
+    50%{
+
+        transform:translateY(-15px);
+
+    }
+
+    100%{
+
+        transform:translateY(0px);
+
+    }
+
+}
+
+@keyframes pulseGlow{
+
+    0%{
+
+        box-shadow:
+
+        0 0 20px rgba(124,58,237,.3);
+
+    }
+
+    50%{
+
+        box-shadow:
+
+        0 0 50px rgba(6,182,212,.45);
+
+    }
+
+    100%{
+
+        box-shadow:
+
+        0 0 20px rgba(124,58,237,.3);
+
+    }
+
+}
+
+@keyframes rotateSlow{
+
+    from{
+
+        transform:rotate(0deg);
+
+    }
+
+    to{
+
+        transform:rotate(360deg);
+
+    }
+
+}
+
+@keyframes twinkle{
+
+    0%{
+
+        opacity:.3;
+
+    }
+
+    50%{
+
+        opacity:1;
+
+    }
+
+    100%{
+
+        opacity:.3;
+
+    }
+
+}
+
+@keyframes aurora{
+
+    0%{
+
+        background-position:0% 50%;
+
+    }
+
+    50%{
+
+        background-position:100% 50%;
+
+    }
+
+    100%{
+
+        background-position:0% 50%;
+
+    }
+
+}
+
+@keyframes shootingStar{
+
+    from{
+
+        transform:translateX(-20vw) translateY(-20vh);
+
+        opacity:0;
+
+    }
+
+    20%{
+
+        opacity:1;
+
+    }
+
+    to{
+
+        transform:translateX(120vw) translateY(70vh);
+
+        opacity:0;
+
+    }
+
+}
+
+/* =========================
+   Utility Classes
+========================= */
+
+.animate-float{
+
+    animation:float 5s ease-in-out infinite;
+
+}
+
+.animate-glow{
+
+    animation:pulseGlow 3s infinite alternate;
+
+}
+
+.animate-rotate{
+
+    animation:rotateSlow 30s linear infinite;
+
+}
+
+.animate-twinkle{
+
+    animation:twinkle 2s infinite;
+
+}
+
+.animate-aurora{
+
+    background-size:300% 300%;
+
+    animation:aurora 15s linear infinite;
+
+}
+
+.blur-bg{
+
+    filter:blur(120px);
+
+}
