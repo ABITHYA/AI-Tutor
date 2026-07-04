@@ -1,5 +1,5 @@
-import MotionBackground from "./components/MotionBackground";
 import Navbar from "./components/Navbar";
+import MotionBackground from "./components/MotionBackground";
 import Hero from "./components/Hero";
 
 function App() {
