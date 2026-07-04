@@ -11,27 +11,143 @@ function Hero() {
       <div className="relative z-10 w-full max-w-[1280px] mx-auto px-8 lg:px-16">
 
         {/* Two Column Layout */}
-        <div className="grid lg:grid-cols-[1fr_1fr] items-center gap-20 min-h-screen">
+        <div className="grid lg:grid-cols-[1fr_1fr] items-center gap-8 min-h-screen">
 
           {/* ================= LEFT ================= */}
-
-          <motion.div
+                    <motion.div
             initial={{ opacity: 0, x: -40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="max-w-[540px] justify-self-center lg:justify-self-start lg:pl-12"
+            className="relative flex items-center justify-center lg:-mt-20"
           >
 
-            {/* Badge */}
-            <div className="inline-flex items-center gap-2 rounded-full border border-cyan-400/20 bg-cyan-500/10 backdrop-blur-xl px-5 py-2">
+            {/* Background Glow */}
 
-              <div className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
+            <div className="absolute w-[357px] h-[357px] rounded-full bg-cyan-500/10 blur-[120px]" />
 
-              <span className="text-sm text-cyan-300 font-medium">
-                AI Powered Learning Platform
-              </span>
+            {/* Orb Container */}
+
+            <div className="relative flex items-center justify-center w-[289px] h-[289px]">
+
+              {/* Outer Ring */}
+
+              <motion.div
+                animate={{ rotate: 360 }}
+                transition={{
+                  duration: 40,
+                  repeat: Infinity,
+                  ease: "linear",
+                }}
+                className="absolute w-[272px] h-[272px] rounded-full border border-cyan-400/20"
+              />
+
+              {/* Middle Ring */}
+
+              <motion.div
+                animate={{ rotate: -360 }}
+                transition={{
+                  duration: 28,
+                  repeat: Infinity,
+                  ease: "linear",
+                }}
+                className="absolute w-[212px] h-[212px] rounded-full border border-cyan-300/20"
+              />
+
+              {/* Inner Ring */}
+
+              <motion.div
+                animate={{ rotate: 360 }}
+                transition={{
+                  duration: 18,
+                  repeat: Infinity,
+                  ease: "linear",
+                }}
+                className="absolute w-[153px] h-[153px] rounded-full border border-white/10"
+              />
+
+              {/* Orbit 1 */}
+
+              <motion.div
+                animate={{ rotate: 360 }}
+                transition={{
+                  duration: 10,
+                  repeat: Infinity,
+                  ease: "linear",
+                }}
+                className="absolute w-[297px] h-[297px]"
+              >
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-5 h-5 rounded-full bg-cyan-400 shadow-[0_0_30px_#22d3ee]" />
+              </motion.div>
+
+              {/* Orbit 2 */}
+
+              <motion.div
+                animate={{ rotate: -360 }}
+                transition={{
+                  duration: 14,
+                  repeat: Infinity,
+                  ease: "linear",
+                }}
+                className="absolute w-[238px] h-[238px]"
+              >
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-violet-400 shadow-[0_0_25px_#8b5cf6]" />
+              </motion.div>
+
+              {/* AI Core */}
+
+              <motion.div
+                animate={{
+                  scale: [1, 1.05, 1],
+                }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                }}
+                className="relative flex items-center justify-center w-[120px] h-[120px] rounded-full bg-gradient-to-br from-cyan-400 via-blue-500 to-violet-600 shadow-[0_0_80px_rgba(34,211,238,.45)]"
+              >
+
+                <div className="absolute inset-5 rounded-full bg-white/15 backdrop-blur-xl" />
+
+                <motion.div
+                  animate={{
+                    scale: [1, 1.3, 1],
+                    opacity: [0.7, 1, 0.7],
+                  }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                  }}
+                  className="w-12 h-12 rounded-full bg-white shadow-[0_0_45px_white]"
+                />
+
+              </motion.div>
 
             </div>
+
+            {/* Orb Caption */}
+
+            <div className="absolute -bottom-14 text-center">
+
+              <h2 className="text-4xl font-bold text-white">
+                AI Tutor
+              </h2>
+
+              <p className="mt-3 text-slate-400">
+                Personalized • Intelligent • Always Available
+              </p>
+
+            </div>
+
+          </motion.div>
+
+          {/* ================= RIGHT ================= */}
+
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            className="max-w-[540px] justify-self-center lg:justify-self-end pr-4 lg:pr-24"
+          >
 
             {/* Heading */}
 
@@ -39,7 +155,7 @@ function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="mt-8 text-5xl lg:text-[58px] font-extrabold leading-[1.08] tracking-tight text-white"
+              className="mt-8 text-4xl lg:text-[50px] font-extrabold leading-[1.08] tracking-tight text-white"
             >
 
               Learn Beyond
@@ -58,7 +174,7 @@ function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4 }}
-              className="mt-8 max-w-[500px] text-lg leading-9 text-slate-400"
+              className="mt-12 max-w-[500px] text-lg leading-9 text-slate-400"
             >
 
               Experience AI-powered education with intelligent tutoring,
@@ -74,192 +190,26 @@ function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.6 }}
-              className="flex flex-wrap gap-5 mt-10"
+              className="flex flex-wrap gap-4 mt-14"
             >
 
-              <button className="flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-500 via-blue-500 to-violet-500 px-8 py-3 font-semibold text-white shadow-[0_0_35px_rgba(34,211,238,.35)] hover:scale-105 transition">
+              <button className="flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-400 via-blue-500 to-violet-500 px-20 py-10 font-semibold text-base text-white shadow-[0_0_30px_rgba(34,211,238,0.25)] hover:shadow-[0_0_45px_rgba(34,211,238,0.4)] hover:-translate-y-0.5 transition-all duration-300 border border-white/10 relative overflow-hidden group">
 
-                Get Started
+                <span className="relative z-10">Get Started</span>
 
-                <HiArrowRight />
+                <HiArrowRight className="relative z-10 group-hover:translate-x-1 transition-transform" />
+
+                <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 via-blue-500 to-violet-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
               </button>
 
-              <button className="rounded-full border border-white/10 bg-white/5 backdrop-blur-xl px-8 py-3 font-medium text-white hover:bg-white/10 transition">
+              <button className="rounded-full border border-white/10 bg-white/5 backdrop-blur-md px-20 py-10 font-medium text-base text-white hover:bg-white/10 hover:border-white/20 hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:-translate-y-0.5 transition-all duration-300">
 
                 Explore Courses
 
               </button>
 
             </motion.div>
-
-            {/* Stats */}
-
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.8 }}
-              className="flex gap-16 mt-12"
-            >
-
-              <div>
-                <h2 className="text-4xl font-bold text-white">
-                  25K+
-                </h2>
-
-                <p className="mt-2 text-slate-400">
-                  Students
-                </p>
-              </div>
-
-              <div>
-                <h2 className="text-4xl font-bold text-white">
-                  500+
-                </h2>
-
-                <p className="mt-2 text-slate-400">
-                  Courses
-                </p>
-              </div>
-
-              <div>
-                <h2 className="text-4xl font-bold text-white">
-                  24/7
-                </h2>
-
-                <p className="mt-2 text-slate-400">
-                  AI Tutor
-                </p>
-              </div>
-
-            </motion.div>
-
-          </motion.div>
-
-          {/* ================= RIGHT ================= */}
-                    <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            className="relative flex items-center justify-center"
-          >
-
-            {/* Background Glow */}
-
-            <div className="absolute w-[420px] h-[420px] rounded-full bg-cyan-500/10 blur-[120px]" />
-
-            {/* Orb Container */}
-
-            <div className="relative flex items-center justify-center w-[340px] h-[340px]">
-
-              {/* Outer Ring */}
-
-              <motion.div
-                animate={{ rotate: 360 }}
-                transition={{
-                  duration: 40,
-                  repeat: Infinity,
-                  ease: "linear",
-                }}
-                className="absolute w-[320px] h-[320px] rounded-full border border-cyan-400/20"
-              />
-
-              {/* Middle Ring */}
-
-              <motion.div
-                animate={{ rotate: -360 }}
-                transition={{
-                  duration: 28,
-                  repeat: Infinity,
-                  ease: "linear",
-                }}
-                className="absolute w-[250px] h-[250px] rounded-full border border-cyan-300/20"
-              />
-
-              {/* Inner Ring */}
-
-              <motion.div
-                animate={{ rotate: 360 }}
-                transition={{
-                  duration: 18,
-                  repeat: Infinity,
-                  ease: "linear",
-                }}
-                className="absolute w-[180px] h-[180px] rounded-full border border-white/10"
-              />
-
-              {/* Orbit 1 */}
-
-              <motion.div
-                animate={{ rotate: 360 }}
-                transition={{
-                  duration: 10,
-                  repeat: Infinity,
-                  ease: "linear",
-                }}
-                className="absolute w-[350px] h-[350px]"
-              >
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-5 h-5 rounded-full bg-cyan-400 shadow-[0_0_30px_#22d3ee]" />
-              </motion.div>
-
-              {/* Orbit 2 */}
-
-              <motion.div
-                animate={{ rotate: -360 }}
-                transition={{
-                  duration: 14,
-                  repeat: Infinity,
-                  ease: "linear",
-                }}
-                className="absolute w-[280px] h-[280px]"
-              >
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-violet-400 shadow-[0_0_25px_#8b5cf6]" />
-              </motion.div>
-
-              {/* AI Core */}
-
-              <motion.div
-                animate={{
-                  scale: [1, 1.05, 1],
-                }}
-                transition={{
-                  duration: 4,
-                  repeat: Infinity,
-                }}
-                className="relative flex items-center justify-center w-36 h-36 rounded-full bg-gradient-to-br from-cyan-400 via-blue-500 to-violet-600 shadow-[0_0_80px_rgba(34,211,238,.45)]"
-              >
-
-                <div className="absolute inset-5 rounded-full bg-white/15 backdrop-blur-xl" />
-
-                <motion.div
-                  animate={{
-                    scale: [1, 1.3, 1],
-                    opacity: [0.7, 1, 0.7],
-                  }}
-                  transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                  }}
-                  className="w-14 h-14 rounded-full bg-white shadow-[0_0_45px_white]"
-                />
-
-              </motion.div>
-
-            </div>
-
-            {/* Orb Caption */}
-
-            <div className="absolute -bottom-20 text-center">
-
-              <h2 className="text-4xl font-bold text-white">
-                AI Tutor
-              </h2>
-
-              <p className="mt-3 text-slate-400">
-                Personalized • Intelligent • Always Available
-              </p>
-
-            </div>
 
           </motion.div>
 
