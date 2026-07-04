@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { HiArrowRight } from "react-icons/hi";
+import { Link } from "react-router-dom";
 
 function Hero() {
   return (
@@ -193,7 +194,7 @@ function Hero() {
               className="flex flex-wrap gap-4 mt-14"
             >
 
-              <button className="flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-400 via-blue-500 to-violet-500 px-20 py-10 font-semibold text-base text-white shadow-[0_0_30px_rgba(34,211,238,0.25)] hover:shadow-[0_0_45px_rgba(34,211,238,0.4)] hover:-translate-y-0.5 transition-all duration-300 border border-white/10 relative overflow-hidden group">
+              <Link to="/login" className="flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-400 via-blue-500 to-violet-500 px-20 py-10 font-semibold text-base text-white shadow-[0_0_30px_rgba(34,211,238,0.25)] hover:shadow-[0_0_45px_rgba(34,211,238,0.4)] hover:-translate-y-0.5 transition-all duration-300 border border-white/10 relative overflow-hidden group">
 
                 <span className="relative z-10">Get Started</span>
 
@@ -201,7 +202,7 @@ function Hero() {
 
                 <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 via-blue-500 to-violet-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
-              </button>
+              </Link>
 
               <button className="rounded-full border border-white/10 bg-white/5 backdrop-blur-md px-20 py-10 font-medium text-base text-white hover:bg-white/10 hover:border-white/20 hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:-translate-y-0.5 transition-all duration-300">
 

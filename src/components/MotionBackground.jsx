@@ -21,7 +21,7 @@ const particles = Array.from({ length: 80 }, (_, i) => ({
 
 {[...Array(8)].map((_, i) => (
   <motion.div
-    key={i}
+   key={i}
     className="absolute h-[2px]"
     style={{
       top: `${15 + i * 10}%`,
